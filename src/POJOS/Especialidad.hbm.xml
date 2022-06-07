@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 07-jun-2022 21:50:41 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="POJOS.Especialidad" table="especialidad" catalog="universidad" optimistic-lock="version">
+        <id name="cod" type="int">
+            <column name="Cod" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="Nombre" length="30" />
+        </property>
+        <set name="profesors" table="profesor" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="cod" />
+            </key>
+            <one-to-many class="POJOS.Profesor" />
+        </set>
+    </class>
+</hibernate-mapping>
